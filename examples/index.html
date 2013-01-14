@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Events Async</title>
+</head>
+<body>
+
+    <script type="text/javascript" src="../vendor/jquery.js"></script>
+    <script type="text/javascript" src="../vendor/lodash.js"></script>
+    <script type="text/javascript" src="../vendor/backbone.js"></script>
+    <script type="text/javascript" src="../lib/backbone.declaratie.views.js"></script>
+    <script type="text/javascript">
+
+        var Button = Backbone.View.extend({
+            vtype: 'btn',
+            className: 'btn btn-primary'
+        });
+
+        var Toolbar = Backbone.View.extend({
+            className: 'toolbar',
+            views: [{
+                vtype: 'btn',
+                className: 'btn'
+            },
+            {
+                vtype: Button,
+                className: 'btn btn-primary'
+            }]
+        });
+
+        var toolbar = (new Toolbar()).render().el;
+        
+        $('body').append( toolbar );
+    </script>
+</body>
+</html>
